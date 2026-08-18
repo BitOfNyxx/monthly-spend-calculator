@@ -1,17 +1,12 @@
+from helpers import finance_user_prompt
+
+
 def input_starting_balance() -> float:
-    while True:
-        try:
-            return round(float(input("Please input your starting balance: ")))
-        except ValueError:
-            print("Value entered is not a valid number, please try again.")
+    return finance_user_prompt("Please input your starting balance: ")
 
 
 def input_monthly_income() -> float:
-    while True:
-        try:
-            return float(input("Please input your monthly income post deductions: "))
-        except ValueError:
-            print("Value entered is not a valid number, please try again.")
+    return finance_user_prompt("Please input your monthly income post deductions: ")
 
 
 def balance_post_income(starting_balance: float, monthly_income: float) -> float:
