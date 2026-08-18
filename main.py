@@ -22,13 +22,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-"""
-Flow:
-
-Inputs: Salary, Starting Balance, Bills
-Output: Remaining Balance after bills are paid
-
-Bill structure: (name, amount)
-"""
