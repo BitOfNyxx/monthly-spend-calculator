@@ -10,9 +10,8 @@ class Bill:
 def monthly_bills() -> list[Bill]:
     bill_list = []
     while True:
-        bill_name = str(
-            input("Please input the name of the bill (leave blank to finish): ")
-        )
+        bill_name = input("Please input the name of the bill (leave blank to finish): ")
+
         if not bill_name:
             break
         while True:
@@ -21,7 +20,6 @@ def monthly_bills() -> list[Bill]:
                 break
             except ValueError:
                 print("Value entered is not a valid number, please try again.")
-                continue
         bill_list.append(Bill(name=bill_name, bill_amount=bill_amount))
 
     return bill_list
