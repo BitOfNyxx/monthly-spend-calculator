@@ -1,4 +1,4 @@
-def finance_user_prompt(prompt):
+def finance_user_prompt(prompt: str) -> float:
     while True:
         user_input = input(prompt)
         try:
