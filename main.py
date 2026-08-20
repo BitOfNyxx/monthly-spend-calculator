@@ -1,5 +1,12 @@
 from bills import monthly_bills, remove_bills_from_balance
-from finances import balance_post_income, input_monthly_income, input_starting_balance
+from debts import create_debt_list
+from finances import (
+    apr_monthly_rate,
+    balance_post_income,
+    input_monthly_income,
+    input_starting_balance,
+    interest_on_balance,
+)
 
 
 def main():
@@ -18,6 +25,15 @@ def main():
 
     balance_after_bills = remove_bills_from_balance(new_balance, bills)
     print(f"Balance remaining after paying bills: {balance_after_bills:.2f}")
+
+    debts = create_debt_list()
+
+    if debts:
+        print("Debt interest this month: ")
+        for debt in debts:
+            monthly_rate = apr_monthly_rate(debt.apr_percent)
+            interest_accrued = interest_on_balance(debt.balance, monthly_rate)
+            print(f"{debt.name} has accrued £{interest_accrued:.2f} this month")
 
 
 if __name__ == "__main__":
